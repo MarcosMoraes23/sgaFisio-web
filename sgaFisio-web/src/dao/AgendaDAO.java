@@ -1,5 +1,6 @@
 package dao;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -7,6 +8,7 @@ import javax.persistence.Query;
 
 import model.Agenda;
 import util.PersistenceUtil;
+
 
 public class AgendaDAO 
 {
@@ -36,6 +38,31 @@ public class AgendaDAO
 			return null;
 		}
 	}
+	
+	
+//BUSCAR AGENDA POR DATA
+@SuppressWarnings("unchecked")
+public List<Agenda> buscarPorData(Date data)
+{
+	List<Agenda> agendas;
+	
+	EntityManager em = PersistenceUtil.getEntityManager();
+	
+	try
+	{
+		Query query = em.createQuery("SELECT a FROM Agenda a where dataAgenda=:data");
+		query.setParameter("data", data);	
+		agendas = query.getResultList();
+		
+		return agendas;
+	}
+	catch (Exception e)
+	{
+		e.printStackTrace();
+		return null;
+	}
+}
+	
 	
 //BUSCAR TODOS
 	@SuppressWarnings("unchecked")
@@ -69,7 +96,7 @@ public class AgendaDAO
 		
 		try
 		{
-			Query query = em.createQuery("SELCT a from Agenda a where id=:id");
+			Query query = em.createQuery("SELECT a from Agenda a where id=:id");
 			query.setParameter("id", id);
 			
 			agenda= (Agenda)query.getSingleResult();
