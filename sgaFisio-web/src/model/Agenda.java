@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 
@@ -8,11 +9,14 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -26,7 +30,7 @@ public class Agenda implements Serializable
     private static final long serialVersionUID = 1L;
     
     private Long id;
-    private Date hora;  
+    private Time hora;  
     private Date dataAgenda;   
     private Integer status;    
     private List<Atendimento> atendimentos;   
@@ -37,7 +41,7 @@ public class Agenda implements Serializable
     public Agenda() {}
 
     
-    public Agenda(Long id, Date hora, Date dataAgenda, Integer status,List<Atendimento> atendimentos, Estagiario estagiario,Paciente paciente, Secretaria secretaria) 
+    public Agenda(Long id, Time hora, Date dataAgenda, Integer status,List<Atendimento> atendimentos, Estagiario estagiario,Paciente paciente, Secretaria secretaria) 
     {
 		this.id = id;
 		this.hora = hora;
@@ -65,6 +69,8 @@ public class Agenda implements Serializable
 	@Id
     @Basic(optional = false)
     @Column(name = "id")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="sequence_agenda")
+	@SequenceGenerator(name="sequence_agenda", sequenceName="sequence_agenda", allocationSize=1)
     public Long getId() 
     {
         return id;
@@ -82,7 +88,7 @@ public class Agenda implements Serializable
     {
         return hora;
     }
-    public void setHora(Date hora) 
+    public void setHora(Time hora) 
     {
         this.hora = hora;
     }

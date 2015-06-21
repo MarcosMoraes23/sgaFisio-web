@@ -9,11 +9,14 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -80,6 +83,8 @@ public class Supervisor implements Serializable
 	@Id
     @Basic(optional = false)
     @Column(name = "id")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="sequence_supervisor")
+	@SequenceGenerator(name="sequence_supervisor", sequenceName="sequence_supervisor", allocationSize=1)
     public Long getId()
 	{
         return id;
