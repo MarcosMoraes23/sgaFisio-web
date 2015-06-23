@@ -19,6 +19,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 
 @Entity
@@ -248,7 +249,7 @@ public class Secretaria implements Serializable
         this.complemento = complemento;
     }
 
-    
+    @Transient
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "secretaria")
     public List<FilaDeEspera> getFilasDeEspera() 
     {
@@ -266,12 +267,12 @@ public class Secretaria implements Serializable
     {
         return usuario;
     }
-    public void setIdUsuario(Usuario usuario) 
+    public void setUsuario(Usuario usuario) 
     {
         this.usuario = usuario;
     }
     
-
+    @Transient
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "secretaria")
     public List<Agenda> getAgendas() 
     {

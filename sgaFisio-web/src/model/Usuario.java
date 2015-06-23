@@ -14,6 +14,9 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import enumerated.TipoUsuarioEnum;
 
 
 @Entity
@@ -26,7 +29,7 @@ public class Usuario implements Serializable
     private Long id;
     private String usuario;   
     private String senha;  
-    private Integer tipo;   
+    private TipoUsuarioEnum tipo;   
     private List<Estagiario> estagiarios;    
     private List<Secretaria> secretarias;    
     private List<Supervisor> supervisores;
@@ -36,7 +39,7 @@ public class Usuario implements Serializable
     public Usuario() {}
 
 
-	public Usuario(Long id, String usuario, String senha, Integer tipo,List<Estagiario> estagiarios, List<Secretaria> secretarias,List<Supervisor> supervisores) 
+	public Usuario(Long id, String usuario, String senha, TipoUsuarioEnum tipo,List<Estagiario> estagiarios, List<Secretaria> secretarias,List<Supervisor> supervisores) 
     {
 		super();
 		this.id = id;
@@ -97,16 +100,16 @@ public class Usuario implements Serializable
     
     @Basic(optional = false)
     @Column(name = "tipo")
-    public Integer getTipo() 
+    public TipoUsuarioEnum getTipo() 
     {
         return tipo;
     }
-    public void setTipo(Integer tipo)
+    public void setTipo(TipoUsuarioEnum tipo)
     {
         this.tipo = tipo;
     }
 
-    
+    @Transient
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
     public List<Estagiario> getEstagiarios() 
     {
@@ -117,7 +120,7 @@ public class Usuario implements Serializable
         this.estagiarios = estagiarios;
     }
 
-    
+    @Transient
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
     public List<Secretaria> getSecretarias()
     {
@@ -128,7 +131,7 @@ public class Usuario implements Serializable
         this.secretarias = secretarias;
     }
 
-    
+    @Transient
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
     public List<Supervisor> getSupervisores() 
     {

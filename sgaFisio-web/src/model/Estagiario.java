@@ -19,6 +19,9 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+
+import enumerated.TurnoAlocadoEnum;
 
 @Entity
 @Table(name = "estagiario")
@@ -41,7 +44,7 @@ public class Estagiario implements Serializable
     private String cep; 
     private int numero;
     private String complemento; 
-    private Integer turnoAlocado;
+    private TurnoAlocadoEnum turnoAlocado;
     private int periodo; 
     private Usuario usuario;
     private List<Anamnese> anamneses;
@@ -53,7 +56,7 @@ public class Estagiario implements Serializable
     
 
 
-    public Estagiario(Long id, String nome, Date dataNascimento,String matricula, String cpf, String rg, String telefone,String estado, String cidade, String bairro, String rua,String cep, int numero, String complemento, Integer turnoAlocado,int periodo, Usuario usuario, List<Anamnese> anamneses,List<Agenda> agendas) 
+    public Estagiario(Long id, String nome, Date dataNascimento,String matricula, String cpf, String rg, String telefone,String estado, String cidade, String bairro, String rua,String cep, int numero, String complemento, TurnoAlocadoEnum turnoAlocado,int periodo, Usuario usuario, List<Anamnese> anamneses,List<Agenda> agendas) 
     {
 		this.id = id;
 		this.nome = nome;
@@ -247,11 +250,11 @@ public class Estagiario implements Serializable
 
     
     @Column(name = "turno_alocado")
-    public Integer getTurnoAlocado()
+    public TurnoAlocadoEnum getTurnoAlocado()
     {
         return turnoAlocado;
     }
-    public void setTurnoAlocado(Integer turnoAlocado)
+    public void setTurnoAlocado(TurnoAlocadoEnum turnoAlocado)
     {
         this.turnoAlocado = turnoAlocado;
     }
@@ -278,6 +281,7 @@ public class Estagiario implements Serializable
         this.usuario = usuario;
     }
 
+    @Transient
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "estagiario")
     public List<Anamnese> getAnamneses() 
     {
@@ -288,6 +292,7 @@ public class Estagiario implements Serializable
         this.anamneses = anamneses;
     }
 
+    @Transient
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "estagiario")
     public List<Agenda> getAgendas() 
     {

@@ -117,7 +117,7 @@ public class Atendimento implements Serializable
     {
         return agenda;
     }
-    public void setIdAgenda(Agenda agenda) 
+    public void setAgenda(Agenda agenda) 
     {
         this.agenda = agenda;
     }

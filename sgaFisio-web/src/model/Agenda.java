@@ -21,6 +21,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import enumerated.StatusAgendaEnum;
+
 
 @Entity
 @Table(name = "agenda")
@@ -32,7 +34,7 @@ public class Agenda implements Serializable
     private Long id;
     private Time hora;  
     private Date dataAgenda;   
-    private Integer status;    
+    private StatusAgendaEnum status;    
     private List<Atendimento> atendimentos;   
     private Estagiario estagiario;   
     private Paciente paciente;  
@@ -41,7 +43,7 @@ public class Agenda implements Serializable
     public Agenda() {}
 
     
-    public Agenda(Long id, Time hora, Date dataAgenda, Integer status,List<Atendimento> atendimentos, Estagiario estagiario,Paciente paciente, Secretaria secretaria) 
+    public Agenda(Long id, Time hora, Date dataAgenda, StatusAgendaEnum status,List<Atendimento> atendimentos, Estagiario estagiario,Paciente paciente, Secretaria secretaria) 
     {
 		this.id = id;
 		this.hora = hora;
@@ -108,11 +110,11 @@ public class Agenda implements Serializable
     
     
     @Column(name = "status")
-    public Integer getStatus()
+    public StatusAgendaEnum getStatus()
     {
         return status;
     }
-    public void setStatus(Integer status) 
+    public void setStatus(StatusAgendaEnum status) 
     {
         this.status = status;
     }
@@ -130,7 +132,7 @@ public class Agenda implements Serializable
     
     @JoinColumn(name = "id_estagiario", referencedColumnName = "id")
     @ManyToOne(optional = false)
-    public Estagiario getIdEstagiario()
+    public Estagiario getEstagiario()
     {
         return estagiario;
     }

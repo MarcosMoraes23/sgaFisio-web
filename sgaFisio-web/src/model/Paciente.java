@@ -18,6 +18,10 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+
+import enumerated.EstadoCivilEnum;
+import enumerated.EtniaEnum;
 
 
 @Entity
@@ -39,8 +43,8 @@ public class Paciente implements Serializable
     private String cep;
     private Integer numero;
     private String complemento;
-    private Integer etnia;
-    private Integer estadoCivil;
+    private EtniaEnum etnia;
+    private EstadoCivilEnum estadoCivil;
     private Boolean sexo;
     private String ocupacaoAtual;
     private String responsavel;
@@ -57,7 +61,7 @@ public class Paciente implements Serializable
     
     
 
-    public Paciente(Long id, String nome, Date dataNascimento, String cpf,String rg, String telefone, String estado, String cidade,String bairro, String rua, String cep, Integer numero,String complemento, Integer etnia, Integer estadoCivil,Boolean sexo, String ocupacaoAtual, String responsavel,Boolean isencao, BigDecimal valorPago, Integer falta, Boolean alta,List<FilaDeEspera> filasDeEspera, List<Anamnese> anamneses,List<Agenda> agendas) 
+    public Paciente(Long id, String nome, Date dataNascimento, String cpf,String rg, String telefone, String estado, String cidade,String bairro, String rua, String cep, Integer numero,String complemento, EtniaEnum etnia, EstadoCivilEnum estadoCivil,Boolean sexo, String ocupacaoAtual, String responsavel,Boolean isencao, BigDecimal valorPago, Integer falta, Boolean alta,List<FilaDeEspera> filasDeEspera, List<Anamnese> anamneses,List<Agenda> agendas) 
     {
 		this.id = id;
 		this.nome = nome;
@@ -260,11 +264,11 @@ public class Paciente implements Serializable
     
     @Basic(optional = false)
     @Column(name = "etnia")
-    public Integer getEtnia() 
+    public EtniaEnum getEtnia() 
     {
         return etnia;
     }
-    public void setEtnia(Integer etnia) 
+    public void setEtnia(EtniaEnum etnia) 
     {
         this.etnia = etnia;
     }
@@ -272,11 +276,11 @@ public class Paciente implements Serializable
     
     @Basic(optional = false)
     @Column(name = "estado_civil")
-    public Integer getEstadoCivil() 
+    public EstadoCivilEnum getEstadoCivil() 
     {
         return estadoCivil;
     }
-    public void setEstadoCivil(Integer estadoCivil)
+    public void setEstadoCivil(EstadoCivilEnum estadoCivil)
     {
         this.estadoCivil = estadoCivil;
     }
@@ -360,7 +364,7 @@ public class Paciente implements Serializable
         this.alta = alta;
     }
     
-    
+    @Transient
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "paciente")
     public List<FilaDeEspera> getFilasDeEspera()
     {
@@ -371,7 +375,7 @@ public class Paciente implements Serializable
         this.filasDeEspera = filasDeEspera;
     }
 
-    
+    @Transient
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "paciente")
     public List<Anamnese> getAnamneses() 
     {
@@ -382,7 +386,7 @@ public class Paciente implements Serializable
         this.anamneses = anamneses;
     }
 
-    
+    @Transient
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "paciente")
     public List<Agenda> getAgendas() 
     {

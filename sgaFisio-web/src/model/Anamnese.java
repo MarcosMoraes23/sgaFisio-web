@@ -120,7 +120,7 @@ public class Anamnese implements Serializable
     }
     
     @Column(name = "historico_familiar")
-    public String getHistoricoFamiliarFamiliar() {
+    public String getHistoricoFamiliar() {
         return historicoFamiliar;
     }
 
@@ -261,7 +261,7 @@ public class Anamnese implements Serializable
         return paciente;
     }
 
-    public void setIdPaciente(Paciente paciente) {
+    public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
     }
 

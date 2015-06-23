@@ -20,6 +20,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "supervisor")
@@ -245,7 +246,7 @@ public class Supervisor implements Serializable
         this.complemento = complemento;
     }
 
-    
+    @Transient
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "supervisor")
     public List<Anamnese> getAnamneses() 
     {
@@ -257,7 +258,7 @@ public class Supervisor implements Serializable
     }
     
     
-    
+    @Transient
     @JoinColumn(name = "id_usuario", referencedColumnName = "id")
     @ManyToOne(optional = false)
     public Usuario getUsuario() 

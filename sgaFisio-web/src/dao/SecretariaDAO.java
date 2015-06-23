@@ -85,6 +85,31 @@ public List<Secretaria> BuscarPorNome(String nome)
 }
 
 
+//BUSCAR POR CPF
+@SuppressWarnings("unchecked")
+public List<Secretaria> BuscarCpf(String cpf)
+{
+	EntityManager em = PersistenceUtil.getEntityManager();
+	List<Secretaria> secretarias;
+	
+	try 
+	{
+		Query query = em.createQuery("SELECT s FROM Secretaria s where cpf=:cpf");
+		query.setParameter("cpf", cpf);
+		
+		secretarias = query.getResultList();
+		
+		return secretarias;
+	} 
+	catch (Exception e) 
+	{
+		e.printStackTrace();
+		return null;
+	}
+}
+
+
+
 //BUSCAR POR ID	
 public Secretaria buscarId(Long id)
 {
@@ -93,7 +118,7 @@ public Secretaria buscarId(Long id)
 	
 	try
 	{
-		Query query = em.createQuery("SELECT a from Secretaria a where id=:id");
+		Query query = em.createQuery("SELECT s from Secretaria s where id=:id");
 		query.setParameter("id", id);
 		
 		secretaria= (Secretaria)query.getSingleResult();
