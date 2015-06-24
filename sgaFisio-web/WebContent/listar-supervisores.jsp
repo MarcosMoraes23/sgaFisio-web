@@ -40,11 +40,7 @@
     </div>
 </div>
 <!-- /.container -->
-<div class="container">
-    <div class="text-center">
 
-        
-        
         
         
         
@@ -53,20 +49,20 @@
       <div class="panel panel-default">
         <div class="panel-heading">
           <h4>
-            Fixed Header Scrolling Table 
+            Listagem de Supervisores
           </h4>
         </div>
         <table class="table table-fixed">
           <thead>
             <tr>
-              <th class="col-xs-2">Código(ID)</th> <th class="col-xs-8">Nome do Supervisor</th><th class="col-xs-2">Matrícula</th>
+              <th class="col-xs-2">Código(ID)</th> <th class="col-xs-6">Nome do Supervisor</th><th class="col-xs-2">Telefone</th><th class="col-xs-2">Matrícula</th>
             </tr>
           </thead>
           <tbody>
           <%for(Supervisor i : SupervisorController.getInstance().buscarTodos()){%>
             <tr>
              
-              		<td class="col-xs-2"> <%out.println(i.getId());%> </td><td class="col-xs-8"> <%out.println(i.getNome());%> </td><td class="col-xs-2"><%out.println(i.getMatricula());%></td>
+           	<td class="col-xs-2"> <%out.println(i.getId());%> </td><td class="col-xs-6"> <%out.println(i.getNome());%> </td> <td class="col-xs-6"> <%out.println(i.getTelefone());%> </td> <td class="col-xs-2"><%out.println(i.getMatricula());%></td>
              	
             </tr>
             <%}%>
@@ -77,22 +73,6 @@
 </div>
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    </div>
-</div>
 
     </body>
     
