@@ -63,17 +63,17 @@ public List<Usuario> buscarTodos()
 	}
 }
 
-//BUSCAR POR NOME
+//BUSCAR POR User	
 @SuppressWarnings("unchecked")
-public List<Usuario> BuscarPorNome(String nome)
+public List<Usuario> buscarPorNome(String user)
 {
 	EntityManager em = PersistenceUtil.getEntityManager();
 	List<Usuario> usuarios;
 	
 	try 
 	{
-		Query query = em.createQuery("SELECT u FROM Usuario u where usuario=:nome");
-		query.setParameter("nome", nome);
+		Query query = em.createQuery("SELECT u FROM Usuario u where usuario=:user");
+		query.setParameter("user", nome);
 		
 		usuarios = query.getResultList();
 		

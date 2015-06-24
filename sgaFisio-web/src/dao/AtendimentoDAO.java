@@ -12,7 +12,7 @@ import util.PersistenceUtil;
 
 public class AtendimentoDAO 
 {
-	public AtendimentoDAO getInstance()
+	public static AtendimentoDAO getInstance()
 	{
 		return new AtendimentoDAO();
 	}

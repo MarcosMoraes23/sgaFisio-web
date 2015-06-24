@@ -12,7 +12,7 @@ import util.PersistenceUtil;
 
 public class FilaDeEsperaDAO 
 {
-	public FilaDeEsperaDAO getInstance()
+	public static FilaDeEsperaDAO getInstance()
 	{
 		return new FilaDeEsperaDAO();
 	}

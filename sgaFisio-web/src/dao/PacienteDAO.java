@@ -86,7 +86,7 @@ public List<Paciente> buscarCpf(String cpf)
 
 //BUSCAR POR NOME
 @SuppressWarnings("unchecked")
-public List<Paciente> BuscarPorNome(String nome)
+public List<Paciente> buscarPorNome(String nome)
 {
 	EntityManager em = PersistenceUtil.getEntityManager();
 	List<Paciente> pacientes;

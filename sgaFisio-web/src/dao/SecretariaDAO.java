@@ -63,7 +63,7 @@ public List<Secretaria> buscarTodos()
 
 //BUSCAR POR NOME
 @SuppressWarnings("unchecked")
-public List<Secretaria> BuscarPorNome(String nome)
+public List<Secretaria> buscarPorNome(String nome)
 {
 	EntityManager em = PersistenceUtil.getEntityManager();
 	List<Secretaria> secretarias;
@@ -87,7 +87,7 @@ public List<Secretaria> BuscarPorNome(String nome)
 
 //BUSCAR POR CPF
 @SuppressWarnings("unchecked")
-public List<Secretaria> BuscarCpf(String cpf)
+public List<Secretaria> buscarCpf(String cpf)
 {
 	EntityManager em = PersistenceUtil.getEntityManager();
 	List<Secretaria> secretarias;

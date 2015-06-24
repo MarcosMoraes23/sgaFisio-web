@@ -11,7 +11,7 @@ import util.PersistenceUtil;
 
 public class EstagiarioDAO
 {
-	public EstagiarioDAO getInstance()
+	public static EstagiarioDAO getInstance()
 	{
 		return new EstagiarioDAO();
 	}
@@ -42,7 +42,7 @@ public class EstagiarioDAO
 	
 //BUSCAR POR NOME
 @SuppressWarnings("unchecked")
-public List<Estagiario> buscarPorData(String nome)
+public List<Estagiario> buscarPorNome(String nome)
 {
 	List<Estagiario> estagiarios;
 	

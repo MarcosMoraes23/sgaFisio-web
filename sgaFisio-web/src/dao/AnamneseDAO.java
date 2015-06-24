@@ -11,7 +11,7 @@ import model.Anamnese;
 
 public class AnamneseDAO 
 {
-	public AnamneseDAO getInstance()
+	public static AnamneseDAO getInstance()
 	{
 		return new AnamneseDAO();
 	}
