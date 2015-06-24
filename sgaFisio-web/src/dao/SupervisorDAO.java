@@ -49,7 +49,7 @@ public List<Supervisor> buscarTodos()
 	
 	try 
 	{
-		Query query = em.createNamedQuery("Supervisor.FindAll");
+		Query query = em.createNamedQuery("Supervisor.findAll");
 		supervisores = query.getResultList();
 		
 		return supervisores;

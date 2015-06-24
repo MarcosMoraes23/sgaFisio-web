@@ -22,14 +22,12 @@ public Secretaria persistir(Secretaria paciente)
 	
 	
 //BUSCAR TODOS
-@SuppressWarnings("unchecked")
 public List<Secretaria> buscarTodos()
 {
 	return SecretariaDAO.getInstance().buscarTodos();
 }
 
 //BUSCAR POR NOME
-@SuppressWarnings("unchecked")
 public List<Secretaria> BuscarPorNome(String nome)
 {
 	return SecretariaDAO.getInstance().buscarPorNome(nome);
@@ -37,7 +35,6 @@ public List<Secretaria> BuscarPorNome(String nome)
 
 
 //BUSCAR POR CPF		
-@SuppressWarnings("unchecked")
 public List<Secretaria> buscarPorCpf(String cpf)
 {
 	return SecretariaDAO.getInstance().buscarCpf(cpf);

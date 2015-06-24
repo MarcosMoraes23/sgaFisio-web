@@ -22,17 +22,15 @@ public Usuario persistir(Usuario paciente)
 	
 	
 //BUSCAR TODOS
-@SuppressWarnings("unchecked")
 public List<Usuario> buscarTodos()
 {
 	return UsuarioDAO.getInstance().buscarTodos();
 }
 
 //BUSCAR POR NOME
-@SuppressWarnings("unchecked")
-public List<Usuario> BuscarPorNome(String nome)
+public List<Usuario> BuscarPorNome(String user)
 {
-	return UsuarioDAO.getInstance().BuscarPorNome(nome);
+	return UsuarioDAO.getInstance().buscarPorNome(user);
 }
 
 

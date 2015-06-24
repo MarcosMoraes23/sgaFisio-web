@@ -74,7 +74,7 @@ public List<Anamnese> buscarPorData(Date data)
 		
 		try 
 		{
-			Query query = em.createNamedQuery("Anamnese.FindAll");
+			Query query = em.createNamedQuery("Anamnese.findAll");
 			anamneses = query.getResultList();
 			
 			return anamneses;

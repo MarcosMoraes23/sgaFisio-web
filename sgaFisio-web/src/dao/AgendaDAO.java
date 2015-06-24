@@ -74,7 +74,7 @@ public List<Agenda> buscarPorData(Date data)
 		
 		try 
 		{
-			Query query = em.createNamedQuery("Agenda.FindAll");
+			Query query = em.createNamedQuery("Agenda.findAll");
 			autores = query.getResultList();
 			
 			return autores;

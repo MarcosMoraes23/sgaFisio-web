@@ -23,14 +23,13 @@ public Atendimento persistir(Atendimento atendimento)
 	
 	
 //BUSCAR TODOS
-@SuppressWarnings("unchecked")
+
 public List<Atendimento> buscarTodos()
 {
 	return AtendimentoDAO.getInstance().buscarTodos();
 }
 
 //BUSCAR POR DATA
-@SuppressWarnings("unchecked")
 public List<Atendimento> BuscarPorNome(Date data)
 {
 	return AtendimentoDAO.getInstance().buscarPorData(data);

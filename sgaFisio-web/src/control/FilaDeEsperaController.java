@@ -23,14 +23,12 @@ public FilaDeEspera persistir(FilaDeEspera filaDeEspera)
 	
 	
 //BUSCAR TODOS
-@SuppressWarnings("unchecked")
 public List<FilaDeEspera> buscarTodos()
 {
 	return FilaDeEsperaDAO.getInstance().buscarTodos();
 }
 
 //BUSCAR POR NOME
-@SuppressWarnings("unchecked")
 public List<FilaDeEspera> BuscarPorNome(Date data)
 {
 	return FilaDeEsperaDAO.getInstance().buscarPorData(data);

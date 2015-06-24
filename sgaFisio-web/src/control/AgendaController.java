@@ -23,14 +23,12 @@ public Agenda persistir(Agenda agenda)
 	
 	
 //BUSCAR TODOS
-@SuppressWarnings("unchecked")
 public List<Agenda> buscarTodos()
 {
 	return AgendaDAO.getInstance().buscarTodos();
 }
 
 //BUSCAR POR DATA
-@SuppressWarnings("unchecked")
 public List<Agenda> BuscarPorNome(Date data)
 {
 	return AgendaDAO.getInstance().buscarPorData(data);

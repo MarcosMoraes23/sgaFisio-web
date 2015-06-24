@@ -22,14 +22,12 @@ public Supervisor persistir(Supervisor paciente)
 	
 	
 //BUSCAR TODOS
-@SuppressWarnings("unchecked")
 public List<Supervisor> buscarTodos()
 {
 	return SupervisorDAO.getInstance().buscarTodos();
 }
 
 //BUSCAR POR NOME
-@SuppressWarnings("unchecked")
 public List<Supervisor> BuscarPorNome(String nome)
 {
 	return SupervisorDAO.getInstance().buscarPorNome(nome);
@@ -37,7 +35,6 @@ public List<Supervisor> BuscarPorNome(String nome)
 
 
 //BUSCAR POR CPF		
-@SuppressWarnings("unchecked")
 public List<Supervisor> buscarPorCpf(String cpf)
 {
 	return SupervisorDAO.getInstance().buscarCpf(cpf);

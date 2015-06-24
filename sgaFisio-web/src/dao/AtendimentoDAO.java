@@ -75,7 +75,7 @@ public List<Atendimento> buscarPorData(Date data)
 		
 		try 
 		{
-			Query query = em.createNamedQuery("Atendimento.FindAll");
+			Query query = em.createNamedQuery("Atendimento.findAll");
 			atendimentos = query.getResultList();
 			
 			return atendimentos;

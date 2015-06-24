@@ -99,7 +99,7 @@ public List<Estagiario> buscarCpf(String cpf)
 		
 		try 
 		{
-			Query query = em.createNamedQuery("Estagiario.FindAll");
+			Query query = em.createNamedQuery("Estagiario.findAll");
 			estagiarios = query.getResultList();
 			
 			return estagiarios;

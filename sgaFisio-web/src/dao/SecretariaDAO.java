@@ -48,7 +48,7 @@ public List<Secretaria> buscarTodos()
 	
 	try 
 	{
-		Query query = em.createNamedQuery("Secretaria.FindAll");
+		Query query = em.createNamedQuery("Secretaria.findAll");
 		secretarias = query.getResultList();
 		
 		return secretarias;

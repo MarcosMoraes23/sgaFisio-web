@@ -75,7 +75,7 @@ public List<FilaDeEspera> buscarPorData(Date data)
 		
 		try 
 		{
-			Query query = em.createNamedQuery("FilaDeEspera.FindAll");
+			Query query = em.createNamedQuery("FilaDeEspera.findAll");
 			filasDeEspera = query.getResultList();
 			
 			return filasDeEspera;

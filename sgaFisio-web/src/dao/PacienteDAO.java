@@ -47,7 +47,7 @@ public List<Paciente> buscarTodos()
 	
 	try 
 	{
-		Query query = em.createNamedQuery("Paciente.FindAll");
+		Query query = em.createNamedQuery("Paciente.findAll");
 		pacientes = query.getResultList();
 		
 		return pacientes;

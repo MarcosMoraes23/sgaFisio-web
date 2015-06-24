@@ -258,14 +258,14 @@ public class Supervisor implements Serializable
     }
     
     
-    @Transient
+    
     @JoinColumn(name = "id_usuario", referencedColumnName = "id")
     @ManyToOne(optional = false)
     public Usuario getUsuario() 
     {
         return usuario;
     }
-    public void setIdUsuario(Usuario usuario)
+    public void setUsuario(Usuario usuario)
     {
         this.usuario = usuario;
     }

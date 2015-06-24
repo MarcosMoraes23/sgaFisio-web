@@ -23,17 +23,17 @@ public Anamnese persistir(Anamnese anamnese)
 	
 	
 //BUSCAR TODOS
-@SuppressWarnings("unchecked")
+
 public List<Anamnese> buscarTodos()
 {
 	return AnamneseDAO.getInstance().buscarTodos();
 }
 
 //BUSCAR POR DATA
-@SuppressWarnings("unchecked")
+
 public List<Anamnese> BuscarPorNome(Date data)
 {
-	return AnamneseDAO.getInstance().buscarPorData(data)
+	return AnamneseDAO.getInstance().buscarPorData(data);
 }
 
 

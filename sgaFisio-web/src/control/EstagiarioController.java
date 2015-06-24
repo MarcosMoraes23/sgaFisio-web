@@ -22,7 +22,6 @@ public Estagiario persistir(Estagiario estagiario)
 	
 	
 //BUSCAR TODOS
-@SuppressWarnings("unchecked")
 public List<Estagiario> buscarTodos()
 {
 	return EstagiarioDAO.getInstance().buscarTodos();
@@ -30,7 +29,6 @@ public List<Estagiario> buscarTodos()
 
 
 //BUSCAR POR NOME	
-@SuppressWarnings("unchecked")
 public List<Estagiario> buscarPorNome(String nome)
 {
 	return EstagiarioDAO.getInstance().buscarPorNome(nome);
@@ -38,7 +36,6 @@ public List<Estagiario> buscarPorNome(String nome)
 
 
 //BUSCAR POR CPF
-@SuppressWarnings("unchecked")
 public List<Estagiario> BuscarPorNome(String cpf)
 {
 	return EstagiarioDAO.getInstance().buscarCpf(cpf);

@@ -22,14 +22,12 @@ public Paciente persistir(Paciente paciente)
 	
 	
 //BUSCAR TODOS
-@SuppressWarnings("unchecked")
 public List<Paciente> buscarTodos()
 {
 	return PacienteDAO.getInstance().buscarTodos();
 }
 
 //BUSCAR POR NOME
-@SuppressWarnings("unchecked")
 public List<Paciente> BuscarPorNome(String nome)
 {
 	return PacienteDAO.getInstance().buscarPorNome(nome);
@@ -37,7 +35,6 @@ public List<Paciente> BuscarPorNome(String nome)
 
 
 //BUSCAR POR CPF		
-@SuppressWarnings("unchecked")
 public List<Paciente> buscarPorCpf(String cpf)
 {
 	return PacienteDAO.getInstance().buscarCpf(cpf);
