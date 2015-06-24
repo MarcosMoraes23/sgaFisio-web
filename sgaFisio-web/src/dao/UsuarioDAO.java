@@ -73,7 +73,7 @@ public List<Usuario> buscarPorNome(String user)
 	try 
 	{
 		Query query = em.createQuery("SELECT u FROM Usuario u where usuario=:user");
-		query.setParameter("user", nome);
+		query.setParameter("user", user);
 		
 		usuarios = query.getResultList();
 		

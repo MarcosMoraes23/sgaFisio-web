@@ -33,7 +33,7 @@ public List<Anamnese> buscarTodos()
 @SuppressWarnings("unchecked")
 public List<Anamnese> BuscarPorNome(Date data)
 {
-	return AnamneseDAO.getInstance().buscarPorData(data)
+	return AnamneseDAO.getInstance().buscarPorData(data);
 }
 
 

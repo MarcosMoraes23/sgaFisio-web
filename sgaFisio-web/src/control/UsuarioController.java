@@ -32,7 +32,7 @@ public List<Usuario> buscarTodos()
 @SuppressWarnings("unchecked")
 public List<Usuario> BuscarPorNome(String nome)
 {
-	return UsuarioDAO.getInstance().BuscarPorNome(nome);
+	return UsuarioDAO.getInstance().buscarPorNome(nome);
 }
 
 

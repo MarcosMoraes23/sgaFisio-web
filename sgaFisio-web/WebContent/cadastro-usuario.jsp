@@ -1,3 +1,6 @@
+<%@page import="com.sun.corba.se.spi.orbutil.fsm.Input"%>
+<%@page import="enumerated.TipoUsuarioEnum"%>
+<%@page import="model.Usuario"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -20,13 +23,13 @@
 
                 </div>
                 <div class="panel-body">
-                    <fieldset>
+               		<fieldset>
                         <div class="form-group has-error">
                             <input class="form-control input-lg" placeholder="Nome de Usuário" name="nomeUsuario"
                                    type="text">
                         </div>
                         <div class="form-group has-success">
-                            <input class="form-control input-lg" placeholder="Senha" name=""
+                            <input class="form-control input-lg" placeholder="Senha" name="senhaUsuario"
                                    value="" type="password">
                         </div>
                         <div class="form-group has-success">
@@ -34,15 +37,25 @@
                                    value="" type="password">
                         </div>
                         <div class="form-group">
-                            <select class="form-control input-lg">
-                                <option selecterd="" class="">Tipo de Usuário</option>
-                                <option>Supervisor(a)</option>
-                                <option>Secretária(a)</option>
-                                <option>Estagiário(a)</option>
-                                <option>Administrador</option>
+                            <select class="form-control input-lg" name = "tipoUsuario"t>
+                                <%
+                                	out.println("<option>"+TipoUsuarioEnum.supervisor + "</option>");
+                                	out.println("<option>"+TipoUsuarioEnum.secretaria + "</option>");
+                                	out.println("<option>"+TipoUsuarioEnum.estagiario + "</option>");
+                                	out.println("<option>"+TipoUsuarioEnum.administrador + "</option>");                             
+                                %>
                             </select>
                         </div>
                         <input class="btn btn-lg btn-primary btn-block" value="Confirmar" type="submit">
+                        
+                        <%
+                        	Usuario u = new Usuario();
+                        	
+                        	u.setUsuario(request.getParameter("nomeUsuario"));
+                        	u.setSenha(request.getParameter("senhaUsuario"));
+                        	u.setTipo(TipoUsuarioEnum.secretaria);
+                        
+                        %>
                     </fieldset>
                 </div>
             </div>
@@ -52,3 +65,4 @@
 
 </body>
 </html>
+
