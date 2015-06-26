@@ -108,7 +108,6 @@ public class Supervisor implements Serializable
     }
 
     
-    @Basic(optional = false)
     @Column(name = "data_nascimento")
     @Temporal(TemporalType.DATE)
     public Date getDataNascimento() 
@@ -260,7 +259,7 @@ public class Supervisor implements Serializable
     
     
     @JoinColumn(name = "id_usuario", referencedColumnName = "id")
-    @ManyToOne(optional = false)
+    @ManyToOne
     public Usuario getUsuario() 
     {
         return usuario;

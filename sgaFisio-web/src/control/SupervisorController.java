@@ -15,9 +15,9 @@ public class SupervisorController
 	}
 	
 //PERSISTIR	
-public Supervisor persistir(Supervisor paciente)
+public Supervisor persistir(Supervisor supervisor)
 {
-	return SupervisorDAO.getInstance().persistir(paciente);
+	return SupervisorDAO.getInstance().persistir(supervisor);
 }
 	
 	
@@ -28,7 +28,7 @@ public List<Supervisor> buscarTodos()
 }
 
 //BUSCAR POR NOME
-public List<Supervisor> BuscarPorNome(String nome)
+public List<Supervisor> buscarPorNome(String nome)
 {
 	return SupervisorDAO.getInstance().buscarPorNome(nome);
 }
@@ -49,9 +49,9 @@ public Supervisor buscarId(Long id)
 
 
 //EXCLUIR
-public boolean excluir(Supervisor paciente)
+public boolean excluir(Supervisor supervisor)
 {
-	return SupervisorDAO.getInstance().excluir(paciente);
+	return SupervisorDAO.getInstance().excluir(supervisor);
 }
 
 

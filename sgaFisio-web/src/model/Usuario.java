@@ -131,7 +131,7 @@ public class Usuario implements Serializable
         this.secretarias = secretarias;
     }
 
-    @Transient
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
     public List<Supervisor> getSupervisores() 
     {

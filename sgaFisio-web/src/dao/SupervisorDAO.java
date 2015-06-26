@@ -71,8 +71,8 @@ public List<Supervisor> buscarPorNome(String nome)
 	
 	try 
 	{
-		Query query = em.createQuery("SELECT s FROM Supervisor s where nome=:nome");
-		query.setParameter("nome", nome);
+		Query query = em.createQuery("SELECT s FROM Supervisor s where upper(s.nome) like :nome");
+		query.setParameter("nome","%"+ nome.toUpperCase()+"%");
 		
 		supervisores = query.getResultList();
 		
@@ -96,7 +96,7 @@ public List<Supervisor> buscarCpf(String cpf)
 	
 	try 
 	{
-		Query query = em.createQuery("SELECT s FROM Supervisor s where cpf=:cpf");
+		Query query = em.createQuery("SELECT s FROM Supervisor s where s.cpf=:cpf");
 		query.setParameter("cpf", cpf);
 		
 		supervisores = query.getResultList();
@@ -120,7 +120,7 @@ public Supervisor buscarId(Long id)
 	
 	try
 	{
-		Query query = em.createQuery("SELECT s from Supervisor s where id=:id");
+		Query query = em.createQuery("SELECT s from Supervisor s where s.id=:id");
 		query.setParameter("id", id);
 		
 		supervisor= (Supervisor)query.getSingleResult();

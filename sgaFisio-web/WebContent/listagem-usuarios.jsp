@@ -1,0 +1,132 @@
+<%@page import="model.Usuario"%>
+<%@page import="control.UsuarioController"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+<head>
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="bootstrap/css/bootstrap-theme.css" rel="stylesheet" media="screen">
+    <meta charset="UTF-8" content="text/css">
+
+
+    <title>Listagem</title>
+</head>
+
+
+<body>
+
+
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+
+            </button> <a class="navbar-brand" href="#">SGA-Fisio</a>
+
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="cadastro-supervisor.jsp" class="">Supervisores</a>
+                </li>
+                <li><a href="cadastro-usuario.jsp" class="">Usuários</a>
+                </li>
+                <li><a href="cadastro-paciente.jsp" class="">Pacientes</a>
+                </li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</div>
+
+
+<br><br>
+
+<hr>
+  <form  method="post" accept-charset="utf-8">  
+	<div class="container" ng-app="">
+    <div ng-controller="initApp">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="input-group input-group-lg add-on">
+                    <input class="form-control search-query" ng-model="query" ng-change="search()" placeholder="Digite o Nome" type="text" name="pesquisa">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit" name="pesquisar"><i class="glyphicon glyphicon-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-md-6">
+                <h4 class="text-center">Listagem de Usuarios</h4>
+            </div>
+            <div class="col-md-3">
+                <select class="form-control input-lg pull-right" ng-model="itemsPerPage" ng-change="perPage()" ng-options="('show '+size+' per page') for size in pageSizes"></select>
+            </div>
+        </div>
+
+        <table class="table table-striped table-hover">
+            <tbody><tr>
+                <th class="id"><a ng-click="sort_by('id')">Id <i class="fa fa-sort"></i></a></th>
+                <th class="name"><a ng-click="sort_by('name')">User Name <i class="fa fa-sort"></i></a></th>
+                <th class="description" title="non-sortable">Tipo</th>
+                <th></th>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr><td colspan="9">
+                <div class="text-center">
+                    <ul class="pagination">
+                        <li ng-class="{disabled: currentPage == 0}">
+                            <a href="javascript:;" ng-click="prevPage()">Anterior</a>
+                        </li>
+                        <li ng-repeat="n in range(pagedItems.length)" ng-class="{active: n == currentPage}" ng-click="setPage()">
+                            <a href="javascript:;" ng-bind="n + 1">1</a>
+                        </li>
+                        <li ng-class="{disabled: currentPage == pagedItems.length - 1}">
+                            <a href="javascript:;" ng-click="nextPage()">Próximo</a>
+                        </li>
+                    </ul>
+                </div>
+            </td>
+            </tr></tfoot>
+            <tbody>
+            <% String pesquisa =  request.getParameter("pesquisa");	%>
+            <%if(pesquisa == null || pesquisa == "" )
+            for(Usuario i : UsuarioController.getInstance().buscarTodos()){%>
+	            <tr ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse">
+	                <td><%out.println(i.getId());%></td>
+	                <td><%out.println(i.getUsuario());%></td>
+	                <td><%out.println(i.getTipo().toString());%></td>
+	                <td><a href="#" ng-click="deleteItem($index)">Excluir</a></td>
+	            </tr>
+	            <% }
+            	else
+            	{
+            	for(Usuario i : UsuarioController.getInstance().BuscarPorNome(pesquisa)){%>
+	            <tr ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse">
+	                <td name="id"><%out.println(i.getId());%></td>
+	                <td name="nome"><%out.println(i.getUsuario());%></td>
+	                <td name="tipo"><%out.println(i.getTipo().toString());%></td>
+	                <td><a name= "excluir" href="#" ng-click="deleteItem($index)">Excluir</a></td>
+	            </tr>
+	            <%}
+	            }%>
+
+            </tbody>
+        </table>
+    </div>
+    </form>
+</div>
+
+
+
+
+
+
+</body>
+</html>
+</html>

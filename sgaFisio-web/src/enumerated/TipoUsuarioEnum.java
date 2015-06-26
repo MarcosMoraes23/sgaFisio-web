@@ -47,10 +47,10 @@ public enum TipoUsuarioEnum
     {
         switch(this)
         {
-            case supervisor: return "Supervisor";
-            case secretaria: return "Secretária";
-            case estagiario: return "Estagiária(o)";
-            case administrador: return "Administrador";
+            case supervisor: return "supervisor";
+            case secretaria: return "secretaria";
+            case estagiario: return "estagiario";
+            case administrador: return "administrador";
                 
             default: return null;
         }

@@ -50,7 +50,7 @@ public List<Usuario> buscarTodos()
 	
 	try 
 	{
-		Query query = em.createNamedQuery("Usuario.FindAll");
+		Query query = em.createNamedQuery("Usuario.findAll");
 		usuarios = query.getResultList();
 		
 		return usuarios;
@@ -72,8 +72,8 @@ public List<Usuario> buscarPorNome(String user)
 	
 	try 
 	{
-		Query query = em.createQuery("SELECT u FROM Usuario u where usuario=:user");
-		query.setParameter("user", user);
+		Query query = em.createQuery("SELECT u FROM Usuario u where upper(u.usuario) like :user");
+		query.setParameter("user", "%"+ user.toUpperCase()+"%");
 		
 		usuarios = query.getResultList();
 		
