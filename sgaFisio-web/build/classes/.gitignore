@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 /servlets/
 /control/
 /dao/
 /util/
 /model/
 /enumerated/
+=======
+/control/
+/dao/
+/META-INF/
+>>>>>>> origin/master

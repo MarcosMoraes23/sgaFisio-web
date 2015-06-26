@@ -23,14 +23,22 @@ public Anamnese persistir(Anamnese anamnese)
 	
 	
 //BUSCAR TODOS
+<<<<<<< HEAD
 
+=======
+@SuppressWarnings("unchecked")
+>>>>>>> origin/master
 public List<Anamnese> buscarTodos()
 {
 	return AnamneseDAO.getInstance().buscarTodos();
 }
 
 //BUSCAR POR DATA
+<<<<<<< HEAD
 
+=======
+@SuppressWarnings("unchecked")
+>>>>>>> origin/master
 public List<Anamnese> BuscarPorNome(Date data)
 {
 	return AnamneseDAO.getInstance().buscarPorData(data);

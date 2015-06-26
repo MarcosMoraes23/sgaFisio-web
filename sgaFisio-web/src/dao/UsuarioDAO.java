@@ -72,8 +72,13 @@ public List<Usuario> buscarPorNome(String user)
 	
 	try 
 	{
+<<<<<<< HEAD
 		Query query = em.createQuery("SELECT u FROM Usuario u where upper(u.usuario) like :user");
 		query.setParameter("user", "%"+ user.toUpperCase()+"%");
+=======
+		Query query = em.createQuery("SELECT u FROM Usuario u where usuario=:user");
+		query.setParameter("user", user);
+>>>>>>> origin/master
 		
 		usuarios = query.getResultList();
 		
